@@ -99,7 +99,7 @@ Circle* create_circle(Point* center, int radius)
 void print_circle(Circle* c)
 {
     print_point(c->p);
-    printf(" ; r = %d", c->radius);
+    printf(" ; radius = %d", c->radius);
 }
 
 void delete_circle(Circle* circle)
@@ -232,7 +232,7 @@ void delete_shape(Shape* shape)
 }
 
 //=============Function Menu=============
-void menu(bool *run)
+void menu(bool *run)        //Ne pas afficher à chaque fois qu'on finit une action
 {
     char choice;
     Shape* tab_shape[100];
@@ -267,11 +267,11 @@ void menu(bool *run)
             menu(run);
             break;
     }
-}       //Ne pas afficher à chaque fois qu'on finissent une action
+}
 
 Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne en paramètre un tableau dans lequel elle va enregistré les formes
 {
-    int choice;
+    char choice;
     int x1, y1, x2, y2, width, height, radius, N;
     Point *points;
 
@@ -285,18 +285,18 @@ Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne
     printf("\t6 - Ajouter un polygone\n");
     printf("\t7 - RETOUR\n");
     printf(">> Votre choix : ");
-    scanf("%d", &choice);
+    scanf(" %c", &choice);
     printf("\n");
 
     switch(choice)
     {
-        case 1:
+        case '1':
             global_id++;
 
             printf("Saisir le point x y: ");
             scanf("%d %d", &x1, &y1);
             return create_point_shape(x1, y1);
-        case 2:
+        case '2':
             global_id++;
 
             printf("Saisir le 1er point x1 y1: ");
@@ -304,7 +304,7 @@ Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne
             printf("\nSaisir le 2e point x2 y2: ");
             scanf("%d %d", &x2, &y2);
             return create_line_shape(x1, y1, x2, y2);
-        case 3:
+        case '3':
             global_id++;
 
             printf("Saisir le point x y: ");
@@ -312,7 +312,7 @@ Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne
             printf("\nSaisir la taille du carree : ");
             scanf("%d", &width);
             return create_square_shape(x1, y1, width);
-        case 4:
+        case '4':
             global_id++;
 
             printf("Saisir le point x y: ");
@@ -320,7 +320,7 @@ Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne
             printf("\nSaisir la largeur et la hauteur (largeur hauteur) : ");
             scanf("%d %d", &width, &height);
             return create_rectangle_shape(x1, y1, width, height);
-        case 5:
+        case '5':
             global_id++;
 
             printf("Saisir le point x y: ");
@@ -328,7 +328,7 @@ Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne
             printf("\nSaisir le rayon du cercle : ");
             scanf("%d", &radius);
             return create_circle_shape(x1, y1, radius);
-        case 6:
+        case '6':
             global_id++;
 
             do {
@@ -347,7 +347,7 @@ Shape* ajouter_forme()  //Changer pour que la fonction ne renvoie rien et prenne
                 printf("\n");
             }
             return create_polygon_shape(points, N);
-        case 7:
+        case '7':
             return NULL;
         default:
             printf("Choix incorrect !\n\n");
