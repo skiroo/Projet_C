@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1684822635 source:c:\users\lynaa\desktop\projets\figures\figures\main.c
+	"command.h"
+
+1684791928 c:\users\lynaa\desktop\projets\figures\figures\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"id.h"
+
+1684790807 c:\users\lynaa\desktop\projets\figures\figures\id.h
+
+1684792506 source:c:\users\lynaa\desktop\projets\figures\figures\functions.c
+	"functions.h"
+
+1684790807 source:c:\users\lynaa\desktop\projets\figures\figures\id.c
+	"id.h"
+
+1684791240 c:\users\lynaa\desktop\projets\figures\figures\area.h
+	<stdio.h>
+	<stdlib.h>
+	"functions.h"
+
+1684823626 source:c:\users\lynaa\desktop\projets\figures\figures\area.c
+	"area.h"
+
+1684822522 source:c:\users\lynaa\desktop\projets\figures\figures\command.c
+	"command.h"
+
+1684792522 c:\users\lynaa\desktop\projets\figures\figures\command.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"area.h"
+
